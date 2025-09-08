@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+/* Define global custom properties for inline style access */
+:root {
+  --primary-color: oklch(0.7 0.2 250); /* Matches current primary-500 blue */
+}
+
+/* Explicitly source your templates and Rust files for class scanning (keep for now, but optional with safelist) */
+@source "../templates/**/*.html";
+@source "../src/**/*.rs";  /* Optional: If you embed classes in Rust strings */
+
+/* Custom theme example (add only what you need) */
+@theme {
+  --breakpoint-lg: 1024px;
+  --font-sans: "Inter", sans-serif;
+
+  /* Primary palette */
+  --color-primary-50: oklch(0.98 0.02 250);   /* Lighter shade */
+  --color-primary-100: oklch(0.95 0.04 250);
+  --color-primary-200: oklch(0.9 0.08 250);
+  --color-primary-300: oklch(0.85 0.12 250);
+  --color-primary-400: oklch(0.8 0.16 250);
+  --color-primary-500: oklch(0.7 0.2 250);    /* Base */
+  --color-primary-600: oklch(0.6 0.24 250);
+  --color-primary-700: oklch(0.5 0.28 250);
+  --color-primary-800: oklch(0.4 0.32 250);
+  --color-primary-900: oklch(0.3 0.36 250);
+  --color-primary-950: oklch(0.2 0.4 250);    /* Darkest */
+
+  /* Example: Extend gray palette with a custom shade */
+  --color-gray-150: rgb(240 240 240);  /* Between 100 and 200 */
+
+  /* Or add entirely new colors, e.g., a 'brand' palette */
+  --color-brand: hsl(200 100% 50%);  /* Base blue */
+  --color-brand-hover: hsl(200 100% 40%);
+  
+  /* More options: colors, spacing scales, etc. – see Tailwind docs */
+}
+
+/* Safelist to force generation of specific utilities */
+/* @source inline("bg-primary-500");  Add more like "bg-primary-100 text-primary-900" if needed */
